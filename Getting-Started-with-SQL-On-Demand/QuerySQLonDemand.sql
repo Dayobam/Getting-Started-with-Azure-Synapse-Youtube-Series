@@ -1,10 +1,11 @@
 ---From Microsoft Quickstart: Use SQL on-demand https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-sql-on-demand
 
 
-CREATE DATABASE mydbname
+CREATE DATABASE YTDB2
 
 -- create master key that will protect the credentials:
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = <enter very strong password here>
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'StrongP@ssw0rd!'
+
 
 -- create credentials for containers in our demo storage account
 CREATE DATABASE SCOPED CREDENTIAL sqlondemand
@@ -16,6 +17,11 @@ CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
     CREDENTIAL = sqlondemand
 );
 
+
+---if you need to drop Any of the above
+-- DROP EXTERNAL DATA SOURCE SqlOnDemandDemo 
+-- DROP DATABASE SCOPED CREDENTIAL sqlondemand
+-- DROP MASTER KEY
 
 ---------------------------
 ---Open the CSV files-----
